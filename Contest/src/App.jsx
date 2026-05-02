@@ -35,6 +35,11 @@ function App() {
     <BrowserRouter>
     <NavBar />
     <Routes>
+      <Route path="/Home" element={<Home events={events} />} />
+      <Route path="/MyEvents" element={<MyEvents events={events} />} />
+      <Route path="/Events" element={<Events events={events} />} />
+      <Route path="/EventDetails/:id" element={<EventDetails events={events} />} />
+      <Route path="/CreateEvents" element={<CreateEvents events={events} setEvents={setEvents} />} />
       <Route path="/Home" element={<Home events={events} onRegister={handleRegister} />} />
       <Route path="/MyEvents" element={<MyEvents  registeredEvents={registeredEvents} />} />
       <Route path="/Events" element={<Events events={events} onRegister={handleRegister} />} />

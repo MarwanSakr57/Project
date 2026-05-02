@@ -4,8 +4,9 @@ import Card from 'react-bootstrap/Card';
 import { FaHeart } from 'react-icons/fa';
 import { useState } from 'react';
 import Badge from 'react-bootstrap/Badge';
+import { useNavigate } from 'react-router-dom'; 
 
-  const badgeColors = {
+const badgeColors = {
   Workshop: 'primary',
   Career: 'success',
   Sports: 'danger',
@@ -17,6 +18,8 @@ import Badge from 'react-bootstrap/Badge';
 export default function EventCard({ onRegister,Event_Title, Event_Date, Event_Time, Event_Location, Event_Description,Event_Category }) {
   const [isFav, setIsFav] = useState(false);
   const badgeColor = badgeColors[Event_Category] || badgeColors.Default;
+  const navigate = useNavigate(); 
+
   return (
     <div>
       <Card style={{
@@ -24,12 +27,12 @@ export default function EventCard({ onRegister,Event_Title, Event_Date, Event_Ti
         border: '1px solid lightgray',
         borderRadius: '10px',
         textAlign: 'left',
-        margin: '20px', 
+        margin: '20px',
         width: '400px',
         height: '300px',
         overflow: 'hidden'
       }}>
-        <Badge  bg={badgeColor} style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 1  }}>{Event_Category}</Badge>
+        <Badge bg={badgeColor} style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 1 }}>{Event_Category}</Badge>
         <FaHeart
           size={24}
           color={isFav ? 'white' : 'red'}

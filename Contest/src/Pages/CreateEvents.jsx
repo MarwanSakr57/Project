@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
 
-function FormExample({ events, setEvents }) {
+function CreateEvents({ events, setEvents }) {
+  const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (event) => {
+    event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
-      event.preventDefault();
       event.stopPropagation();
     } else {
       createEvent();
@@ -18,7 +20,8 @@ function FormExample({ events, setEvents }) {
 
   const createEvent = () => {
     const newEvent = {
-      name: document.getElementById('validationCustom01').value,
+      id: Date.now(),
+      title: document.getElementById('validationCustom01').value,
       category: document.getElementById('validationCustom02').value,
       location: document.getElementById('validationCustom03').value,
       seats: document.getElementById('validationCustom04').value,
@@ -27,6 +30,8 @@ function FormExample({ events, setEvents }) {
       description: document.getElementById('validationCustom05').value,
     };
     setEvents([...events, newEvent]);
+    console.log('Event created:', newEvent);
+    navigate('/Home');
   };
 
   return (
@@ -45,9 +50,14 @@ function FormExample({ events, setEvents }) {
 
           <Form.Group className="mb-3" controlId="validationCustom02">
             <Form.Label className="fw-semibold">Category</Form.Label>
-            <Form.Control required type="text" placeholder="Category" />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-            <Form.Control.Feedback type="invalid">Please provide a valid category.</Form.Control.Feedback>
+            <Form.Select required defaultValue="">
+              <option value="" disabled>Select a category</option>
+              <option value="Tech">Tech</option>
+              <option value="Sports">Sports</option>
+              <option value="Career">Career</option>
+              <option value="Art">Art</option>
+            </Form.Select>
+            <Form.Control.Feedback type="invalid">Please select a category.</Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="validationCustom03">
@@ -65,7 +75,7 @@ function FormExample({ events, setEvents }) {
 
           <Form.Group className="mb-3" controlId="validationCustomDate">
             <Form.Label className="fw-semibold">Date</Form.Label>
-            <Form.Control type="date" required />
+            <Form.Control type="date" required min={new Date().toISOString().split('T')[0]} />
             <Form.Control.Feedback type="invalid">Please provide a valid date.</Form.Control.Feedback>
           </Form.Group>
 
@@ -100,4 +110,4 @@ function FormExample({ events, setEvents }) {
   );
 }
 
-export default FormExample;
+export default CreateEvents;
