@@ -75,7 +75,7 @@ function CreateEvents({ events, setEvents }) {
 
           <Form.Group className="mb-3" controlId="validationCustomDate">
             <Form.Label className="fw-semibold">Date</Form.Label>
-            <Form.Control type="date" required />
+            <Form.Control type="date" required min={new Date().toISOString().split('T')[0]} />
             <Form.Control.Feedback type="invalid">Please provide a valid date.</Form.Control.Feedback>
           </Form.Group>
 
