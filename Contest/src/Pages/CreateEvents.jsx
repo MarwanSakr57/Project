@@ -50,9 +50,14 @@ function CreateEvents({ events, setEvents }) {
 
           <Form.Group className="mb-3" controlId="validationCustom02">
             <Form.Label className="fw-semibold">Category</Form.Label>
-            <Form.Control required type="text" placeholder="Category" />
-            <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-            <Form.Control.Feedback type="invalid">Please provide a valid category.</Form.Control.Feedback>
+            <Form.Select required defaultValue="">
+              <option value="" disabled>Select a category</option>
+              <option value="Tech">Tech</option>
+              <option value="Sports">Sports</option>
+              <option value="Career">Career</option>
+              <option value="Art">Art</option>
+            </Form.Select>
+            <Form.Control.Feedback type="invalid">Please select a category.</Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="validationCustom03">
