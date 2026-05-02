@@ -9,7 +9,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 
 export default function Events({events}) {
 const [Query,setQuery]=useState("");
-const filtered = initialEvents.filter(e =>
+const filtered = events.filter(e =>
     e.title.toLowerCase().includes(Query.trim().toLowerCase())
   );
   return (
@@ -32,7 +32,7 @@ const filtered = initialEvents.filter(e =>
       <Row>
       {filtered.map(e => (
         <Col key={e.id} md={6} lg={4}>
-          <EventCard Event_Title={e.title} Event_Date={e.date} Event_Time={e.time} Event_Location={e.location} Event_Description={e.description} Event_Category={e.category}  />
+          <EventCard Event_Id={e.id} Event_Title={e.title} Event_Date={e.date} Event_Time={e.time} Event_Location={e.location} Event_Description={e.description} Event_Category={e.category}  />
         </Col>
      ))}
     </Row>
