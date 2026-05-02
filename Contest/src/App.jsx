@@ -2,7 +2,9 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
-import './App.css'
+import Footer from './Components/Footer'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 import {Router, Route, Link, BrowserRouter} from 'react-router-dom'
 
 function App() {
@@ -11,6 +13,8 @@ function App() {
   return (
     <>
      <BrowserRouter>
+      <h1>hello world</h1>
+      <Footer />
      </BrowserRouter>
     </>
   )

@@ -2,8 +2,9 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div>
-      
+    <div className='text-center bg-primary text-white'>
+      <h3>Footer Content</h3>
+      <p>All rights reserved @ saif & marwan</p>
     </div>
   )
 }
