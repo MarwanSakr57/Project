@@ -21,8 +21,13 @@ export default function EventCard({ Event_Title, Event_Date, Event_Time, Event_L
     <div>
       <Card style={{
         position: 'relative',
-        width: '18rem', border: '1px solid lightgray', borderRadius: '10px',
-        textAlign: 'left', margin: '20px', width: '400px'
+        border: '1px solid lightgray',
+        borderRadius: '10px',
+        textAlign: 'left',
+        margin: '20px', 
+        width: '400px',
+        height: '300px',
+        overflow: 'hidden'
       }}>
         <Badge  bg={badgeColor} style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 1  }}>{Event_Category}</Badge>
         <FaHeart
@@ -46,8 +51,10 @@ export default function EventCard({ Event_Title, Event_Date, Event_Time, Event_L
           <Card.Text>
             {Event_Description}
           </Card.Text>
+           <div style={{ marginTop: 'auto', display: 'flex', gap: '8px' }}>
           <Button variant='light' style={{ border: '1px solid blue', color: 'blue', margin: '5px' }}>Details</Button>
           <Button variant="primary" style={{ margin: '5px' }}>Register</Button>
+          </div>
         </Card.Body>
       </Card>
     </div>

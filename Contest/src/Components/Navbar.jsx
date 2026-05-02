@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 export default function NavBar() {
   return (
 <div>
-    <Navbar bg="light"  className="bg-body-tertiary">
+    <Navbar bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="#home">Campus Event Hub</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
