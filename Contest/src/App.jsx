@@ -34,7 +34,7 @@ function App() {
       <Route path="/MyEvents" element={<MyEvents />} />
       <Route path="/Events" element={<Events events={events} />} />
       <Route path="/EventDetails" element={<EventDetails />} />
-      <Route path="/CreateEvents" element={<CreateEvents />} />
+      <Route path="/CreateEvents" element={<CreateEvents events={events} setEvents={setEvents} />} />
     </Routes>
     <Footer />
     </BrowserRouter>

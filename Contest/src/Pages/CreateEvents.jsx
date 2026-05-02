@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { useNavigate } from 'react-router-dom';
 
-function FormExample({ events, setEvents }) {
+function CreateEvents({ events, setEvents }) {
+  const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
 
   const handleSubmit = (event) => {
+    event.preventDefault();
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
-      event.preventDefault();
       event.stopPropagation();
     } else {
       createEvent();
@@ -18,7 +20,8 @@ function FormExample({ events, setEvents }) {
 
   const createEvent = () => {
     const newEvent = {
-      name: document.getElementById('validationCustom01').value,
+      id: Date.now(),
+      title: document.getElementById('validationCustom01').value,
       category: document.getElementById('validationCustom02').value,
       location: document.getElementById('validationCustom03').value,
       seats: document.getElementById('validationCustom04').value,
@@ -27,6 +30,8 @@ function FormExample({ events, setEvents }) {
       description: document.getElementById('validationCustom05').value,
     };
     setEvents([...events, newEvent]);
+    console.log('Event created:', newEvent);
+    navigate('/Home');
   };
 
   return (
@@ -100,4 +105,4 @@ function FormExample({ events, setEvents }) {
   );
 }
 
-export default FormExample;
+export default CreateEvents;
