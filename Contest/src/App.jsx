@@ -1,13 +1,16 @@
 import { useState } from 'react'
+import Footer from './Components/Footer'
+import EventCard from './Components/EventCard'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import {Router, Route, Link, BrowserRouter} from 'react-router-dom'
 import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './Components/Navbar'
 import Home from './Pages/Home'
 import MyEvents from './Pages/MyEvents'
 import EventDetails from './Pages/EventDetails'
 import CreateEvents from './Pages/CreateEvents'
 import Events from './Pages/Events.jsx'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
 
 function App() {
   const [count, setCount] = useState(0)
