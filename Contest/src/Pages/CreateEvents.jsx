@@ -1,10 +1,10 @@
+import { create } from 'axios';
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-function FormExample() {
+function FormExample(Events) {
   const [validated, setValidated] = useState(false);
-
   const handleSubmit = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -13,6 +13,18 @@ function FormExample() {
     }
     setValidated(true);
   };
+  const createEvent = () => {
+    const newEvent = {
+      name: document.getElementById('validationCustom01').value,
+      category: document.getElementById('validationCustom02').value,
+      location: document.getElementById('validationCustom03').value,
+      seats: document.getElementById('validationCustom04').value,
+      date: document.getElementById('validationCustomDate').value,
+      time: document.getElementById('validationCustomTime').value,
+      description: document.getElementById('validationCustom05').value,
+    };
+    Events.append(newEvent);
+  }
 
   return (
     <div className="d-flex justify-content-center align-items-center min-vh-100 bg-light">
@@ -75,7 +87,7 @@ function FormExample() {
             />
           </Form.Group>
 
-          <Button type="submit" variant="primary" className="w-100 py-2 fw-semibold">
+          <Button type="submit" variant="primary" id='create' className="w-100 py-2 fw-semibold" onClick={() => createEvent()}>
             Create Event
           </Button>
 
