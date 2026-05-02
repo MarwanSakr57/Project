@@ -3,15 +3,28 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FaHeart } from 'react-icons/fa';
 import { useState } from 'react';
+import Badge from 'react-bootstrap/Badge';
 
-export default function EventCard({ Event_Title, Event_Date, Event_Location, Event_Description }) {
+  const badgeColors = {
+  Workshop: 'primary',
+  Career: 'success',
+  Sports: 'danger',
+  Art: 'warning',
+  Tech: 'info',
+  Default: 'secondary',
+};
+
+export default function EventCard({ Event_Title, Event_Date, Event_Time, Event_Location, Event_Description,Event_Category }) {
   const [isFav, setIsFav] = useState(false);
+  const badgeColor = badgeColors[Event_Category] || badgeColors.Default;
   return (
     <div>
       <Card style={{
+        position: 'relative',
         width: '18rem', border: '1px solid lightgray', borderRadius: '10px',
         textAlign: 'left', margin: '20px', width: '400px'
       }}>
+        <Badge  bg={badgeColor} style={{ position: 'absolute', top: '10px', left: '10px', zIndex: 1  }}>{Event_Category}</Badge>
         <FaHeart
           size={24}
           color={isFav ? 'white' : 'red'}
@@ -26,9 +39,9 @@ export default function EventCard({ Event_Title, Event_Date, Event_Location, Eve
           }}
           onClick={() => setIsFav(!isFav)}
         />
-        <Card.Body>
+        <Card.Body style={{ paddingTop: '2.5rem' }}>
           <Card.Title style={{ fontWeight: 'bold' }}>{Event_Title}</Card.Title>
-          <h6>{Event_Date}</h6>
+          <h6 className='text-muted p-1'>{Event_Date} | {Event_Time}</h6>
           <h6>{Event_Location}</h6>
           <Card.Text>
             {Event_Description}
