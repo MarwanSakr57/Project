@@ -10,7 +10,7 @@ export default function NavBar() {
         <Navbar.Brand href="#home">Campus Event Hub</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Nav className="ms-auto">
-            <Nav.Link as={Link} to="/home">Home</Nav.Link>
+            <Nav.Link as={Link} to="/Home">Home</Nav.Link>
             <Nav.Link as={Link} to="/Events">Events</Nav.Link>
             <Nav.Link as={Link} to="/CreateEvents">Create Event</Nav.Link>
             <Nav.Link as={Link} to="/MyEvents">My Events</Nav.Link>

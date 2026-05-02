@@ -1,7 +1,4 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import NavBar from './Components/Navbar'
@@ -20,7 +17,7 @@ function App() {
     <BrowserRouter>
     <NavBar />
     <Routes>
-      <Route path="/home" element={<Home />} />
+      <Route path="/Home" element={<Home />} />
       <Route path="/MyEvents" element={<MyEvents />} />
       <Route path="/Events" element={<Events />} />
       <Route path="/EventDetails" element={<EventDetails />} />
