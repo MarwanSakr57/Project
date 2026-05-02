@@ -14,7 +14,7 @@ import Badge from 'react-bootstrap/Badge';
   Default: 'secondary',
 };
 
-export default function EventCard({ Event_Title, Event_Date, Event_Time, Event_Location, Event_Description,Event_Category }) {
+export default function EventCard({ onRegister,Event_Title, Event_Date, Event_Time, Event_Location, Event_Description,Event_Category }) {
   const [isFav, setIsFav] = useState(false);
   const badgeColor = badgeColors[Event_Category] || badgeColors.Default;
   return (
@@ -53,7 +53,7 @@ export default function EventCard({ Event_Title, Event_Date, Event_Time, Event_L
           </Card.Text>
            <div style={{ marginTop: 'auto', display: 'flex', gap: '8px' }}>
           <Button variant='light' style={{ border: '1px solid blue', color: 'blue', margin: '5px' }}>Details</Button>
-          <Button variant="primary" style={{ margin: '5px' }}>Register</Button>
+          <Button variant="primary" style={{ margin: '5px' }}onClick={() => onRegister({ id: Math.random(), title: Event_Title })}>Register</Button>
           </div>
         </Card.Body>
       </Card>

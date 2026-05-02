@@ -15,6 +15,11 @@ import { useEffect,useState } from 'react'
 
 function App() {
  const [events, setEvents] = useState([]);
+ const [registeredEvents, setRegisteredEvents] = useState([]);
+
+ function handleRegister(event){
+  setRegisteredEvents(prev => prev.some(e => e.id === event.id) ? prev : [...prev, event]);
+ }
 
   useEffect(() => {
     fetchEvents();
@@ -30,9 +35,9 @@ function App() {
     <BrowserRouter>
     <NavBar />
     <Routes>
-      <Route path="/Home" element={<Home events={events} />} />
-      <Route path="/MyEvents" element={<MyEvents events={events} />} />
-      <Route path="/Events" element={<Events events={events} />} />
+      <Route path="/Home" element={<Home events={events} onRegister={handleRegister} />} />
+      <Route path="/MyEvents" element={<MyEvents  registeredEvents={registeredEvents} />} />
+      <Route path="/Events" element={<Events events={events} onRegister={handleRegister} />} />
       <Route path="/EventDetails" element={<EventDetails />} />
       <Route path="/CreateEvents" element={<CreateEvents />} />
     </Routes>
